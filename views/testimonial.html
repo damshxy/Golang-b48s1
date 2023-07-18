@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/public/Css/all.css">
+  <link rel="stylesheet" href="/public/Css/nav.css">
+  <link rel="stylesheet" href="public/Css/style.css" />
+  <link rel="stylesheet" href="public/Css/testimonial.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <title>Testimonial</title>
+</head>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid text-center d-flex mx-5">
+      <a class="navbar-brand" href="#">
+          <img src="public/images/logo.png" alt="logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="myProject">Add Project</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active" href="testimonial">Testimonial</a>
+              </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-link">
+                  <a href="contact" class="btn btn-outline-secondary" style="background-color: black; color: white; border-style: none;">Contact Me</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+<!-- End Of Navbar -->
+<div class="container">
+  <h1>My Testimonials</h1>
+  <div class="container-rating">
+    <h2>Rating By Stars</h2>
+    <div class="rating">
+      <button class="rating-btn" onclick="getAllTestimonials()">All</button>
+      <button class="rating-btn" onclick="getFilteredTestimonials(1)">
+        1 <i class="fa-solid fa-star"></i>
+      </button>
+      <button class="rating-btn" onclick="getFilteredTestimonials(2)">
+        2 <i class="fa-solid fa-star"></i>
+      </button>
+      <button class="rating-btn" onclick="getFilteredTestimonials(3)">
+        3 <i class="fa-solid fa-star"></i>
+      </button>
+      <button class="rating-btn" onclick="getFilteredTestimonials(4)">
+        4 <i class="fa-solid fa-star"></i>
+      </button>
+      <button class="rating-btn" onclick="getFilteredTestimonials(5)">
+        5 <i class="fa-solid fa-star"></i>
+      </button>
+    </div>
+  </div>
+  <div class="container">
+    <section class="testimonials" id="testimonials">
+      <!-- <div class="testimonial">
+            <img
+              src="assets/images/profile/profile.png"
+              alt=""
+              class="profile-testimonial"
+            />
+            <p class="quote">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget
+              lectus eu libero venenatis gravida eget vel odio.
+            </p>
+            <p class="author">- Saddam</p>
+          </div>
+  
+          <div class="testimonial">
+            <img
+              src="assets/images/profile/profile.png"
+              alt=""
+              class="profile-testimonial"
+            />
+            <p class="quote">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget
+              lectus eu libero venenatis gravida eget vel odio.
+            </p>
+            <p class="author">- Abel Dustin</p>
+          </div>
+  
+          <div class="testimonial">
+            <img
+              src="assets/images/profile/profile.png"
+              alt=""
+              class="profile-testimonial"
+            />
+            <p class="quote">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget
+              lectus eu libero venenatis gravida eget vel odio.
+            </p>
+            <p class="author">- Abel Dustin</p>
+          </div> -->
+    </section>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <script src="/public/Js/ajax.js"></script>
+  <script src="/public/Js/index.js"></script>
+  </body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/Css/detailProject.css" />
+    <link rel="stylesheet" href="/public/Css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <title>Bootcamp Dumbways</title>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <a href="#" class="logo"><img src="/public/images/logo.png" alt="" /></a>
+            <ul class="navbar">
+                <li><a href="/" class="active">Home</a></li>
+                <li><a href="/myProject">My Project</a></li>
+            </ul>
+        </div>
+        <div class="header-contact">
+            <a href="contact">Contact Me</a>
+        </div>
+    </header>
+
+    {{.id}}
+    <h2>{{.title}}</h2>
+    <div class="warpContainer">
+        <div class="containerInfo">
+            <div class="image">
+                <img src="/public/images/blog-img.png" alt="">
+            </div>
+            <div class="dateAndDuration">
+                <div class="infoDateAndDuration">
+                    <h3>Duration</h3>
+                    <div>
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <span>June 15 2023 - Dec 15 2023</span>
+                    </div>
+                    <div>
+                        <i class="fa-regular fa-clock"></i>
+                        <span>8 Month</span>
+                    </div>
+                </div>
+                <div class="iconTech">
+                    <h3>Technologies</h3>
+                    <div class="icon">
+                        <div>
+                            <i class="fa-brands fa-node"></i>
+                            <span>Node Js</span>
+                        </div>
+                        <div>
+                            <i class="fa-brands fa-react"></i>
+                            <span>React Js</span>
+                        </div>
+                        <div>
+                            <i class="fa-brands fa-golang"></i>
+                            <span>Golang</span>
+                        </div>
+                        <div>
+                            <i class="fa-brands fa-square-js"></i>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="paragraph">
+        <p>
+           {{.content}}
+        </p>
+        <br>
+        <p>
+            {{.content}}
+        </p>
+        <br>
+        <p>
+            {{.content}}
+        </p>
+    </div>
+
+</body>
+
+</html>

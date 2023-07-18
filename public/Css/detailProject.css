@@ -1,0 +1,74 @@
+h2 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 150px;
+}
+
+.warpContainer {
+    margin: 20px;
+    padding: 50px;
+    padding-bottom: 120px;
+}
+
+.containerInfo {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    text-align: justify;
+}
+
+.containerInfo .image img {
+    margin-top: 30px;
+   width: 120%;
+    border-radius: 8px;
+    box-shadow: 5px #f3f3f3;
+}
+
+.dateAndDuration {
+    margin-top: 20px;
+    margin-left: 90px;
+}
+
+.dateAndDuration .infoDateAndDuration h3 {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+}
+
+.dateAndDuration .infoDateAndDuration {
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+.iconTech h3 {
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.iconTech .icon {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1em;
+    font-size: 25px;
+}
+
+.line {
+    border: 1px  solid grey;
+}
+
+.paragraph {
+    margin: 20px;
+    padding: 200px;
+    padding-top: 50px;
+}
+
+.paragraph p {
+    text-align: justify;
+}
+
+@media only screen and (max-width: 1550px) {
+    .paragraph p {
+        text-align: justify;
+    }
+}

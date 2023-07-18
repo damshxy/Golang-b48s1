@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="public/Css/all.css" />
+  <link rel="stylesheet" href="public/Css/nav.css" />
+  <link rel="stylesheet" href="public/Css/style.css" />
+  <link rel="stylesheet" href="public/Css/myProject.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <title>My Project</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid text-center d-flex mx-5">
+      <a class="navbar-brand" href="#">
+        <img src="public/images/logo.png" alt="logo" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="myProject">Add Project</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="testimonial">Testimonial</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-link">
+            <a href="contact" class="btn btn-outline-secondary"
+              style="background-color: black; color: white; border-style: none;">Contact Me</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="responsive" class="responsive">
+    <a href="/" class="">
+      Home
+    </a>
+    <a href="myProject" class="responsiveActive">
+      My Project
+    </a>
+    <a href="testimonial">
+      Testimonials
+    </a>
+    <a href="contact">
+      <button type="button">Contact Me</button>
+    </a>
+  </div>
+  <div class="project">
+    <div class="project-form">
+      <div class="form-container">
+        <form onsubmit="postProject(event)">
+          <div class="input-project">
+            <h1>ADD PROJECT</h1>
+            <label for="projectName">Project Name</label>
+            <input id="projectName" type="text" />
+            <div class="start-date">
+              <div class="start-date-left">
+                <label for="input-start-date">Start Date</label>
+                <input class="start1-date" type="date" id="input-start-date" />
+              </div>
+              <div class="start-date-right">
+                <label for="input-end-date">End Date</label>
+                <input class="end-date" type="date" id="input-end-date" />
+              </div>
+            </div>
+            <div class="description">
+              <label for="input-description">Description</label>
+              <textarea id="input-description"></textarea>
+            </div>
+            <div class="checkbox">
+              <p>Techonlogies</p>
+              <div class="checkbox-left">
+                <input type="checkbox" id="nodeCheck">
+                <label for="nodeCheck">Node Js</label>
+                <input type="checkbox" id="reactCheck">
+                <label for="reactCheck">React Js</label>
+              </div>
+              <div class="checkbox-right">
+                <input type="checkbox" id="goCheck">
+                <label for="goCheck">Golang</label>
+                <input type="checkbox" id="jsCheck">
+                <label for="jsCheck">Java Script</label>
+              </div>
+            </div>
+          </div>
+          <div>
+            <label>Upload Image</label>
+            <div class="inputImage">
+              <label for="input-image">
+                <p>Choose</p>
+                <img alt="" />
+              </label>
+              <input type="file" id="input-image" hidden />
+            </div>
+          </div>
+          <div class="button">
+            <button type="submit">Submit</button>
+          </div>
+      </div>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <script src="public/Js/myProject.js" />
+  <script src="public/Js/index.js" />
+</body>
+
+</html>

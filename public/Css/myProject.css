@@ -1,0 +1,209 @@
+.project-form {
+  padding: 180px;
+  display: flex;
+  justify-content: center;
+}
+
+.project-form .form-container {
+  width: 500px;
+}
+
+.project-form .form-container h1 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.project-form form label {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.project-form form input,
+textarea {
+  text-align: justify;
+  width: 100%;
+  font-size: 10px;
+  font-weight: 400;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  border: 1px solid #c4c4c4;
+  border-radius: 8px;
+  resize: none;
+}
+
+.project-form form textarea {
+  height: 150px;
+}
+
+/* Start Date */
+.start-date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.start-date-left input {
+  border: 1px solid white;
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 10px;
+}
+
+.start-date-right input {
+  border: 1px solid white;
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 10px;
+}
+
+.start-date-left {
+  margin-left: 0;
+  margin-right: 25px;
+  margin-top: 20px;
+}
+
+.start-date-right {
+  margin-top: 20px;
+}
+/* End Date */
+
+/* Start Checkbox */
+.checkbox-left,
+.checkbox-right {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.checkbox p {
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.checkbox-left label {
+  margin: auto 65px;
+  padding: 0 10px;
+}
+
+.checkbox-right label {
+  margin: auto 65px;
+  padding: 0 5px;
+}
+/* End Checkbox */
+
+/* Start Input Images */
+.inputImage {
+  width: 100%;
+  font-size: 10px;
+  font-weight: 400;
+  padding: 9px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #cecece;
+  border-radius: 8px;
+}
+
+.inputImage p {
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.inputImage label {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+}
+/* End Input Images */
+
+/* Start Button */
+.project-form form .button {
+  text-align: right;
+}
+
+form .button button {
+  margin-top: 50px;
+  padding: 5px 25px;
+  font-size: 17px;
+  background: black;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+form .button button:hover {
+  background-color: white;
+  color: black;
+}
+/* End Button */
+
+/* Card Project */
+
+.container-project {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 2%;
+  padding: 20px;
+}
+
+.containerCardProject {
+  width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #c4c4c4;
+}
+
+.cardProject {
+  margin: 10px;
+  padding: 20px;
+}
+
+.cardProject .imgCard img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.cardProject .title h3 {
+  text-align: justify;
+}
+
+.cardProject .duration .durationDate {
+  text-align: justify;
+}
+
+.cardProject .duration .durationTime {
+  text-align: justify;
+  padding-bottom: 20px;
+}
+
+.cardProject .content p {
+  text-align: justify;
+  padding-bottom: 25px;
+}
+
+.cardProject .tech {
+  text-align: justify;
+  font-size: 30px;
+  padding-bottom: 20px;
+}
+
+.cardProject .buttons button {
+  padding: 5px;
+  width: 110px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.cardProject .buttons button:hover {
+  background-color: white;
+  color: black;
+}
+/* End of Card Project */
