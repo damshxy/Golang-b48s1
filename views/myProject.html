@@ -66,37 +66,37 @@
   <div class="project">
     <div class="project-form">
       <div class="form-container">
-        <form onsubmit="postProject(event)">
+        <form onsubmit="postProject(event)" action="/addedProject" method="post">
           <div class="input-project">
             <h1>ADD PROJECT</h1>
             <label for="projectName">Project Name</label>
-            <input id="projectName" type="text" />
+            <input name="projectName" type="text" />
             <div class="start-date">
               <div class="start-date-left">
                 <label for="input-start-date">Start Date</label>
-                <input class="start1-date" type="date" id="input-start-date" />
+                <input class="start1-date" type="date" name="input-start-date" />
               </div>
               <div class="start-date-right">
                 <label for="input-end-date">End Date</label>
-                <input class="end-date" type="date" id="input-end-date" />
+                <input class="end-date" type="date" name="input-end-date" />
               </div>
             </div>
             <div class="description">
               <label for="input-description">Description</label>
-              <textarea id="input-description"></textarea>
+              <textarea name="input-description"></textarea>
             </div>
             <div class="checkbox">
               <p>Techonlogies</p>
               <div class="checkbox-left">
-                <input type="checkbox" id="nodeCheck">
+                <input type="checkbox" name="nodeCheck" value="nodeCheck">
                 <label for="nodeCheck">Node Js</label>
-                <input type="checkbox" id="reactCheck">
+                <input type="checkbox" name="reactCheck" value="reactCheck">
                 <label for="reactCheck">React Js</label>
               </div>
               <div class="checkbox-right">
-                <input type="checkbox" id="goCheck">
+                <input type="checkbox" name="goCheck" value="goCheck">
                 <label for="goCheck">Golang</label>
-                <input type="checkbox" id="jsCheck">
+                <input type="checkbox" name="jsCheck" value="jsCheck">
                 <label for="jsCheck">Java Script</label>
               </div>
             </div>

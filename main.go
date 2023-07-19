@@ -16,7 +16,7 @@ func main() {
 	e.GET("/myProject", handlers.GetMyProject)
 	e.GET("/testimonial", handlers.GetTestimonial)
 	e.GET("/detailProject/:id", handlers.GetDetailProject)
-	e.POST("/", handlers.GetAddedProject)
+	e.POST("/addedProject", handlers.GetAddedProject)
 
 	e.Logger.Fatal(e.Start("localhost:5000"))
 }
