@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"net/http"
+	"perosnal-web/models"
 	"text/template"
 
 	"github.com/labstack/echo/v4"
@@ -13,5 +14,9 @@ func GetHome(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"massage": err.Error()})
 	}
 
-	return tmpl.Execute(c.Response(), nil)
+	data := map[string]interface{} {
+		"Project": models.DataProject,
+	}
+
+	return tmpl.Execute(c.Response(), data)
 }

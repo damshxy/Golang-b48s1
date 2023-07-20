@@ -22,15 +22,14 @@
             <ul class="navbar">
                 <li><a href="/" class="active">Home</a></li>
                 <li><a href="/myProject">My Project</a></li>
+                <li><a href="/testimonial">Testimonial</a></li>
             </ul>
         </div>
         <div class="header-contact">
-            <a href="contact">Contact Me</a>
+            <a href="/contact">Contact Me</a>
         </div>
     </header>
-
-    {{.id}}
-    <h2>{{.title}}</h2>
+    <h2>{{.projectName}}</h2>
     <div class="warpContainer">
         <div class="containerInfo">
             <div class="image">
@@ -41,7 +40,7 @@
                     <h3>Duration</h3>
                     <div>
                         <i class="fa-solid fa-calendar-days"></i>
-                        <span>June 15 2023 - Dec 15 2023</span>
+                        <span>{{.Project.StartDate}} - {{.Project.EndDate}}</span>
                     </div>
                     <div>
                         <i class="fa-regular fa-clock"></i>
@@ -73,16 +72,17 @@
         </div>
     </div>
     <div class="paragraph">
+        {{.id}}
         <p>
-           {{.content}}
+           {{.Project.Content}}
         </p>
         <br>
         <p>
-            {{.content}}
+            {{.Project.Content}}
         </p>
         <br>
         <p>
-            {{.content}}
+            {{.Project.Content}}
         </p>
     </div>
 

@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"net/http"
+	"perosnal-web/models"
 	"strconv"
 	"text/template"
 
@@ -11,10 +12,26 @@ import (
 func GetDetailProject(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
+	ProjectDetail := models.AddedProject{}
+
+	for i, data := range models.DataProject {
+		if i == id {
+			ProjectDetail = models.AddedProject{
+				ProjectName: data.ProjectName,
+				StartDate: data.StartDate,
+				EndDate: data.EndDate,
+				Content: data.Content,
+				NodeJs: data.NodeJs,
+				ReactJs: data.ReactJs,
+				Golang: data.Golang,
+				JavaScript: data.JavaScript,
+			}
+		}
+	}
+
 	data := map[string]interface{}{
 		"id":      id,
-		"title":   "Bootcamp Dumbways",
-		"content": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sint dolorum nostrum et non suscipit, veniam dignissimos unde error! Ducimus ipsum id officia suscipit quod libero omnis totam vitae eveniet iste. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur molestias cum voluptatibus ea necessitatibus dignissimos molestiae iste modi fugiat, nihil, consequatur in earum ex odit placeat dicta illo temporibus laudantium!",
+		"Project": ProjectDetail,
 	}
 
 	templ, err := template.ParseFiles("views/detailProject.html")
