@@ -1,6 +1,7 @@
 package main
 
 import (
+	"perosnal-web/connection"
 	"perosnal-web/handlers"
 
 	"github.com/labstack/echo/v4"
@@ -8,6 +9,9 @@ import (
 
 func main() {
 	e := echo.New()
+
+	// connection to database
+	connection.DatabaseConnect()
 
 	e.Static("/public", "public")
 
@@ -17,6 +21,7 @@ func main() {
 	e.GET("/myProject", handlers.GetMyProject)
 	e.GET("/testimonial", handlers.GetTestimonial)
 	e.GET("/detailProject/:id", handlers.GetDetailProject)
+
 	// Post Routing
 	e.POST("/addedProject", handlers.GetAddedProject)
 	e.POST("/deleteProject/:id", handlers.GetDeleteProject)

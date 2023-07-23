@@ -163,26 +163,15 @@
             class="icon"
             style="font-size: 20px; display: flex; justify-content: start"
           >
-            <i
-              class="fa-brands fa-node"
-              id="node-icon"
-              style="padding-left: 5px"
-            ></i>
-            <i
-              class="fa-brands fa-react"
-              id="react-icon"
-              style="padding-left: 5px"
-            ></i>
-            <i
-              class="fa-brands fa-golang"
-              id="golang-icon"
-              style="padding-left: 5px"
-            ></i>
-            <i
-              class="fa-brands fa-square-js"
-              id="js-icon"
-              style="padding-left: 5px"
-            ></i>
+            {{if $project.NodeJs}}
+            <i class="fa-brands fa-node" style="padding-left: 5px"></i>
+            {{end}} {{if $project.ReactJs}}
+            <i class="fa-brands fa-react" style="padding-left: 5px"></i>
+            {{end}} {{if $project.Golang}}
+            <i class="fa-brands fa-golang" style="padding-left: 5px"></i>
+            {{end}} {{if $project.JavaScript}}
+            <i class="fa-brands fa-square-js" style="padding-left: 5px"></i>
+            {{end}}
           </p>
           <div class="buttons">
             <form action="">

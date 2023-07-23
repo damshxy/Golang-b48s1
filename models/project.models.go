@@ -1,25 +1,31 @@
 package models
 
+import "time"
+
 type AddedProject struct {
+	Id          int
 	ProjectName string
-	StartDate string
-	EndDate string
-	Content string
-	NodeJs string
-	ReactJs string
-	Golang string
-	JavaScript string
+	StartDate   time.Time
+	EndDate     time.Time
+	Duration string
+	Content     string
+	Technologies []string
+	NodeJs      bool
+	ReactJs     bool
+	Golang      bool
+	JavaScript bool
+	Image string
 }
 
-var DataProject = []AddedProject {
-	{
-		ProjectName: "Bootcamp Dumways",
-		StartDate: "20/07/2023",
-		EndDate: "20/09/2023",
-		Content: "sitLorem ipsum, dolor  amnsectetur aet codipisicing elit. Sint dolorum nostrum et non suscipit, veniam dignissimos unde error! Ducimus ipsum id officia suscipit quod libero omnis totam vitae eveniet iste. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur molestias cum voluptatibus ea necessitatibus dignissimos molestiae iste modi fugiat, nihil, consequatur in earum ex odit placeat dicta illo temporibus laudantium!",
-		NodeJs: "true",
-		ReactJs: "false",
-		Golang: "true",
-		JavaScript: "true",
-	},
+var DataProject = []AddedProject{
+	// {
+	// 	ProjectName: "Bootcamp Dumways",
+	// 	StartDate: "20/07/2023",
+	// 	EndDate: "20/09/2023",
+	// 	Content: "Dumbways",
+	// 	NodeJs: "true",
+	// 	ReactJs: "false",
+	// 	Golang: "true",
+	// 	JavaScript: "true",
+	// },
 }
