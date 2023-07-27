@@ -9,11 +9,17 @@ import (
 	"perosnal-web/utilities"
 	"text/template"
 
+	"github.com/labstack/echo-contrib/session"
 	"github.com/labstack/echo/v4"
 )
 
 func GetHome(c echo.Context) error {
-	data, _ := connection.Conn.Query(context.Background(), "SELECT id, name_project, start_date, end_date, description, technologies, image FROM tb_project")
+	tmpl, err := template.ParseFiles("views/index.html")
+	if err != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]string{"massage": err.Error()})
+	}
+
+	data, _ := connection.Conn.Query(context.Background(), "SELECT * FROM tb_project")
 
 	models.DataProject = []models.AddedProject{}
 	for data.Next() {
@@ -48,14 +54,24 @@ func GetHome(c echo.Context) error {
 
 	}
 
-	project := map[string]interface{} {
-		"Project": models.DataProject,
+	sess, _ := session.Get("session", c)
+
+	if sess.Values["isLogin"] != true {
+		models.UserData.IsLogin = false
+	} else {
+		models.UserData.IsLogin = sess.Values["isLogin"].(bool)
+		models.UserData.Name = sess.Values["name"].(string)
 	}
 
-	tmpl, err := template.ParseFiles("views/index.html")
-	if err != nil {
-		return c.JSON(http.StatusInternalServerError, map[string]string{"massage": err.Error()})
+	project := map[string]interface{} {
+		"Project": models.DataProject,
+		"FlashStatus": sess.Values["status"],
+		"FlashMessage": sess.Values["message"],
+		"DataSession": models.UserData,
 	}
+
+	delete(sess.Values, "status")
+	delete(sess.Values, "message")
 
 	return tmpl.Execute(c.Response(), project)
 }

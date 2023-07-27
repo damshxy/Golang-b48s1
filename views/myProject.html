@@ -19,50 +19,85 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid text-center d-flex mx-5">
-      <a class="navbar-brand" href="#">
-        <img src="public/images/logo.png" alt="logo" />
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="myProject">Add Project</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="testimonial">Testimonial</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-link">
-            <a href="contact" class="btn btn-outline-secondary"
-              style="background-color: black; color: white; border-style: none;">Contact Me</a>
-          </li>
+  <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg">
+  <div class="container-fluid text-center d-flex mx-5">
+    <a class="navbar-brand" href="#">
+      <img src="public/images/logo.png" alt="logo" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="myProject">Add Project</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="testimonial">Testimonial</a>
+        </li>
+      </ul>
+      {{if .DataSession.IsLogin}}
+      <form id="logoutform" action="/logout" method="POST"></form>
+      <div class="dropdown-center btn-dropdown-logout">
+        <a
+          class="btn dropdown-toggle ps-0 mb-0"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          style="border: none"
+        >
+          Hello, {{.DataSession.Name}}
+        </a>
+
+        <ul
+          class="dropdown-menu text-lg-end text-start m-0 pt-0 bg-body-tertiary"
+          style="border: none"
+        >
+          <a
+            class="dropdown-item bg-body-tertiary ps-0"
+            href="#"
+            style="border: none"
+            onclick="document.getElementById('logoutform').submit()"
+            >Logout</a
+          >
         </ul>
       </div>
+      {{else}}
+      <a class="btn btn-close-white fs-6 border-0" href="/form-register"
+        >Register</a
+      >
+      <a class="btn btn-close-white fs-6 mx-2" href="/form-login">Login</a>
+      {{end}}
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-link">
+          <a
+            href="contact"
+            class="btn btn-outline-secondary"
+            style="
+              background-color: black;
+              color: white;
+              border-style: none;
+            "
+            >Contact Me</a
+          >
+        </li>
+      </ul>
     </div>
-  </nav>
-  <div id="responsive" class="responsive">
-    <a href="/" class="">
-      Home
-    </a>
-    <a href="myProject" class="responsiveActive">
-      My Project
-    </a>
-    <a href="testimonial">
-      Testimonials
-    </a>
-    <a href="contact">
-      <button type="button">Contact Me</button>
-    </a>
   </div>
+</nav>
+<!-- End Of Navbar -->
   <div class="project">
     <div class="project-form">
       <div class="form-container">
@@ -108,7 +143,7 @@
                 <p>Choose</p>
                 <img alt="" />
               </label>
-              <input type="file" id="input-image" hidden />
+              <input type="file" id="input-image" name="input-image" value="input-image" hidden />
             </div>
           </div>
           <div class="button">

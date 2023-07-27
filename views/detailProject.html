@@ -15,21 +15,86 @@
 </head>
 
 <body>
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid text-center d-flex mx-5">
+      <a class="navbar-brand" href="#">
+        <img src="public/images/logo.png" alt="logo" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="myProject">Add Project</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="testimonial">Testimonial</a>
+          </li>
+        </ul>
+        {{if .DataSession.IsLogin}}
+        <form id="logoutform" action="/logout" method="POST"></form>
+        <div class="dropdown-center btn-dropdown-logout">
+          <a
+            class="btn dropdown-toggle ps-0 mb-0"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+            style="border: none"
+          >
+            Hello, {{.DataSession.Name}}
+          </a>
 
-    <header>
-        <div class="header-left">
-            <a href="#" class="logo"><img src="/public/images/logo.png" alt="" /></a>
-            <ul class="navbar">
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="/myProject">My Project</a></li>
-                <li><a href="/testimonial">Testimonial</a></li>
-            </ul>
+          <ul
+            class="dropdown-menu text-lg-end text-start m-0 pt-0 bg-body-tertiary"
+            style="border: none"
+          >
+            <a
+              class="dropdown-item bg-body-tertiary ps-0"
+              href="#"
+              style="border: none"
+              onclick="document.getElementById('logoutform').submit()"
+              >Logout</a
+            >
+          </ul>
         </div>
-        <div class="header-contact">
-            <a href="/contact">Contact Me</a>
-        </div>
-    </header>
-    <h2>{{.projectName}}</h2>
+        {{else}}
+        <a class="btn btn-close-white fs-6 border-0" href="/form-register"
+          >Register</a
+        >
+        <a class="btn btn-close-white fs-6 mx-2" href="/form-login">Login</a>
+        {{end}}
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-link">
+            <a
+              href="contact"
+              class="btn btn-outline-secondary"
+              style="
+                background-color: black;
+                color: white;
+                border-style: none;
+              "
+              >Contact Me</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Of Navbar -->
+    <h2>{{.Project.ProjectName}}</h2>
     <div class="warpContainer">
         <div class="containerInfo">
             <div class="image">
@@ -51,20 +116,28 @@
                     <h3>Technologies</h3>
                     <div class="icon">
                         <div>
+                            {{if .Project.NodeJs}}
                             <i class="fa-brands fa-node"></i>
                             <span>Node Js</span>
+                            {{end}}
                         </div>
                         <div>
+                            {{if .Project.ReactJs}}
                             <i class="fa-brands fa-react"></i>
                             <span>React Js</span>
+                            {{end}}
                         </div>
                         <div>
+                            {{if .Project.Golang}}
                             <i class="fa-brands fa-golang"></i>
                             <span>Golang</span>
+                            {{end}}
                         </div>
                         <div>
+                            {{if .Project.JavaScript}}
                             <i class="fa-brands fa-square-js"></i>
                             <span>JavaScript</span>
+                            {{end}}
                         </div>
                     </div>
                 </div>
@@ -76,16 +149,6 @@
         <p>
            {{.Project.Content}}
         </p>
-        <br>
-        <p>
-            {{.Project.Content}}
-        </p>
-        <br>
-        <p>
-            {{.Project.Content}}
-        </p>
-    </div>
-
 </body>
 
 </html>

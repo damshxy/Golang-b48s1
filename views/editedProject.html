@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="../public/Css/all.css">
-    <link rel="stylesheet" href="../public/Css/nav.css">
-    <link rel="stylesheet" href="../public/Css/contact.css">
-    <link rel="icon" href="../public/images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../public/Css/all.css" />
+    <link rel="stylesheet" href="../public/Css/nav.css" />
+    <link rel="stylesheet" href="../public/Css/style.css" />
+    <link rel="stylesheet" href="../public/Css/myProject.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
@@ -14,15 +14,24 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Contact</title>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <title>Update Project</title>
   </head>
-
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid text-center d-flex mx-5">
         <a class="navbar-brand" href="#">
-          <img src="public/images/logo.png" alt="logo" />
+          <img src="../public/images/logo.png" alt="logo" />
         </a>
         <button
           class="navbar-toggler"
@@ -59,7 +68,7 @@
             >
               Hello, {{.DataSession.Name}}
             </a>
-
+  
             <ul
               class="dropdown-menu text-lg-end text-start m-0 pt-0 bg-body-tertiary"
               style="border: none"
@@ -97,53 +106,66 @@
       </div>
     </nav>
     <!-- End Of Navbar -->
-
-    <section>
-      <form class="main-form" onsubmit="contactSubmit(event)">
-        <div class="container-form">
-          <h1 class="title-form">GET IN TOUCH</h1>
-          <!-- Input Name -->
-          <div class="inputName">
-            <label for="name">Name</label>
-            <input type="text" id="name" />
+    
+  <div class="project">
+    <div class="project-form">
+      <div class="form-container">
+        <form action="/edit-project/{{.Id}}" method="post">
+          <div class="input-project">
+            <h1>Update Project</h1>
+            <label for="projectName">Project Name</label>
+            <input name="projectName" type="text" />
+            <div class="start-date">
+              <div class="start-date-left">
+                <label for="input-start-date">Start Date</label>
+                <input class="start1-date" type="date" name="input-start-date" />
+              </div>
+              <div class="start-date-right">
+                <label for="input-end-date">End Date</label>
+                <input class="end-date" type="date" name="input-end-date" />
+              </div>
+            </div>
+            <div class="description">
+              <label for="input-description">Description</label>
+              <textarea name="input-description"></textarea>
+            </div>
+            <div class="checkbox">
+              <p>Techonlogies</p>
+              <div class="checkbox-left">
+                <input type="checkbox" name="nodeCheck" value="nodeCheck">
+                <label for="nodeCheck">Node Js</label>
+                <input type="checkbox" name="reactCheck" value="reactCheck">
+                <label for="reactCheck">React Js</label>
+              </div>
+              <div class="checkbox-right">
+                <input type="checkbox" name="goCheck" value="goCheck">
+                <label for="goCheck">Golang</label>
+                <input type="checkbox" name="jsCheck" value="jsCheck">
+                <label for="jsCheck">Java Script</label>
+              </div>
+            </div>
           </div>
-          <!-- End of Input Name -->
-          <!-- Input Email -->
-          <div class="inputEmail">
-            <label for="email">Email</label>
-            <input type="text" id="email" />
+          <div>
+            <label>Upload Image</label>
+            <div class="inputImage">
+              <label for="input-image">
+                <p>Choose</p>
+                <img alt="" />
+              </label>
+              <input type="file" id="input-image" name="input-image" value="input-image" hidden />
+            </div>
           </div>
-          <!-- End of Input Email -->
-          <!-- Input Phone Number -->
-          <div class="inputPhone">
-            <label for="phoneNumber">Phone Number</label>
-            <input type="text" id="phoneNumber" />
+          <div class="button">
+            <button type="submit">Submit</button>
           </div>
-          <!-- End of Phone Number -->
-          <!-- Input Subject -->
-          <div class="subject">
-            <label for="subject">Subject</label>
-            <select id="subject">
-              <option value="" hidden>Select</option>
-              <option value="Frontend Developer">Frontend Developer</option>
-              <option vakue="Backend Developer">Backend Developer</option>
-              <option value="Fullstack Developer">Fullstack Developer</option>
-            </select>
-          </div>
-          <div class="textArea">
-            <label for="inputTextArea">Your Message</label>
-            <textarea id="inputTextArea"></textarea>
-          </div>
-          <!-- End of Input Subject -->
-          <!-- Button -->
-          <div class="btn-form">
-            <button class="btn-submit">Submit</button>
-          </div>
-          <!-- End of Button -->
-        </div>
+      </div>
       </form>
-    </section>
-    <script src="Js/contact.js"></script>
-    <script src="Js/index.js"></script>
+    </div>
+  </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    />
   </body>
 </html>

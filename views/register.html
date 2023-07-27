@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../public/Css/all.css" />
+    <link rel="stylesheet" href="../public/Css/nav.css" />
+    <link rel="stylesheet" href="../public/Css/style.css" />
+    <link rel="stylesheet" href="../public/Css/register.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <title>Register</title>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid text-center d-flex mx-5">
+        <a class="navbar-brand" href="#">
+          <img src="../public/images/logo.png" alt="logo" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="myProject">Add Project</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="/form-login" class="nav-link">Login</a>
+            </li>
+            <li class="navbar-item">
+              <a href="/form-register" class="nav-link active">Register</a>
+            </li>
+            <li class="nav-link">
+              <a
+                href="contact"
+                class="btn btn-outline-secondary"
+                style="
+                  background-color: black;
+                  color: white;
+                  border-style: none;
+                "
+                >Contact Me</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- End of Navbar -->
+    <div class="container">
+      <form action="/register" method="post">
+        <div class="container-form-register">
+          <div class="titleRegister">
+            <h1>Register Your Account</h1>
+          </div>
+          <div class="inputFormRegister">
+            <div class="inputUsername">
+              <label for="input-username">Username</label>
+              <input type="text" id="input-username" name="input-username" />
+            </div>
+            <div class="inputEmail">
+              <label for="input-email">Email</label>
+              <input type="text" id="input-email" name="input-email" />
+            </div>
+            <div class="inputPassword">
+              <label for="input-password">Password</label>
+              <input
+                type="password"
+                id="input-password"
+                name="input-password"
+              />
+            </div>
+            <div class="buttonSubmitRegister">
+              <button type="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

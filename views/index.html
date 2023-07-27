@@ -57,6 +57,38 @@
               <a class="nav-link" href="testimonial">Testimonial</a>
             </li>
           </ul>
+          {{if .DataSession.IsLogin}}
+          <form id="logoutform" action="/logout" method="POST"></form>
+          <div class="dropdown-center btn-dropdown-logout">
+            <a
+              class="btn dropdown-toggle ps-0 mb-0"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              style="border: none"
+            >
+              Hello, {{.DataSession.Name}}
+            </a>
+
+            <ul
+              class="dropdown-menu text-lg-end text-start m-0 pt-0 bg-body-tertiary"
+              style="border: none"
+            >
+              <a
+                class="dropdown-item bg-body-tertiary ps-0"
+                href="#"
+                style="border: none"
+                onclick="document.getElementById('logoutform').submit()"
+                >Logout</a
+              >
+            </ul>
+          </div>
+          {{else}}
+          <a class="btn btn-close-white fs-6 border-0" href="/form-register"
+            >Register</a
+          >
+          <a class="btn btn-close-white fs-6 mx-2" href="/form-login">Login</a>
+          {{end}}
           <ul class="navbar-nav ms-auto">
             <li class="nav-link">
               <a
@@ -76,6 +108,34 @@
     </nav>
     <!-- End Of Navbar -->
     <!-- Home Start -->
+    {{if .FlashMessage}} {{if .FlashStatus}}
+    <div
+      class="alert alert-success alert-dismissible fade show text-center mb-0"
+      role="alert"
+    >
+      <strong>{{.FlashMessage}}</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {{else}}
+    <div
+      class="alert alert-danger alert-dismissible fade show text-center mb-0"
+      role="alert"
+    >
+      <strong>{{.FlashStatus}}</strong>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
+    </div>
+    {{end}} {{end}}
+
     <section class="profile" id="profile">
       <div class="container">
         <div class="row justify-content-between">
@@ -85,7 +145,10 @@
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus
               harum ad neque sequi laboriosam repellat illum? Cumque,
               consequuntur eligendi animi doloribus error aliquam quisquam,
-              debitis minus excepturi, eum illo sint?
+              debitis minus excepturi, eum illo sint? Lorem ipsum dolor sit
+              amet, consectetur adipisicing elit. Esse ex consectetur, culpa ut,
+              obcaecati dolore odio sed nulla laborum quasi quisquam dicta unde
+              dolores? Non ut accusantium inventore provident officiis.
             </p>
             <a
               href="contact"
@@ -135,6 +198,11 @@
     <div>
       <h1 class="d-flex justify-content-center">My Project</h1>
     </div>
+    {{if .DataSession.IsLogin}}
+    <div class="d-flex justify-content-center mt-2">
+      <a class="btn btn-dark" href="/myProject" role="button" style="margin-bottom: 80px; margin-left: 900px;">ADD PROJECT</a>
+    </div>
+    {{end}}
     {{range $index, $project := .Project}}
     <div class="container text-center card" style="width: 20%">
       <div class="row">
@@ -144,7 +212,7 @@
             style="width: 100%; padding-top: 15px; border-radius: 8px"
           />
           <a
-            href="detailProject/{{$index}}"
+            href="/detailProject/{{$index}}"
             style="text-decoration: none; color: black"
           >
             <h3>{{$project.ProjectName}}</h3>
@@ -153,28 +221,27 @@
             class="durationMonth pt-4"
             style="display: flex; justify-content: start"
           >
-            Start Date | End Date : {{$project.StartDate}} |
-            {{$project.EndDate}}
+            Duration : {{$project.Duration}}
           </p>
           <p class="d-flex" style="display: flex; text-align: justify">
             {{$project.Content}}
           </p>
-          <p
+          <div
             class="icon"
             style="font-size: 20px; display: flex; justify-content: start"
           >
-            {{if $project.NodeJs}}
+            {{ if $project.NodeJs }}
             <i class="fa-brands fa-node" style="padding-left: 5px"></i>
-            {{end}} {{if $project.ReactJs}}
+            {{ end }} {{ if $project.ReactJs }}
             <i class="fa-brands fa-react" style="padding-left: 5px"></i>
-            {{end}} {{if $project.Golang}}
+            {{ end }} {{ if $project.Golang }}
             <i class="fa-brands fa-golang" style="padding-left: 5px"></i>
-            {{end}} {{if $project.JavaScript}}
+            {{ end }} {{ if $project.JavaScript }}
             <i class="fa-brands fa-square-js" style="padding-left: 5px"></i>
-            {{end}}
-          </p>
+            {{ end }}
+          </div>
           <div class="buttons">
-            <form action="">
+            <form action="/editProject/{{$project.id}}" method="get">
               <button
                 type="button"
                 class="button btn btn-secondary btn-sm"
@@ -183,7 +250,7 @@
                 Edit
               </button>
             </form>
-            <form action="/deleteProject/{{$index}}" method="post">
+            <form action="/deleteProject/{{$project.Id}}" method="post">
               <button
                 class="button btn btn-secondary btn-sm"
                 style="background-color: black; color: white"
@@ -202,6 +269,6 @@
       integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
       crossorigin="anonymous"
     />
-    <script src="public/Js/index.js" />
+    <script src="public/Js/index.js"></script>
   </body>
 </html>

@@ -1,8 +1,9 @@
 package handlers
 
 import (
+	"context"
 	"net/http"
-	"perosnal-web/models"
+	"perosnal-web/connection"
 	"strconv"
 
 	"github.com/labstack/echo/v4"
@@ -11,7 +12,7 @@ import (
 func GetDeleteProject(c echo.Context) error {
 	id, _ := strconv.Atoi(c.Param("id"))
 
-	models.DataProject = append(models.DataProject[:id], models.DataProject[id+1:]...)
+	connection.Conn.Exec(context.Background(), "DELETE FROM tb_project WHERE id=$1", id)
 	
 	return c.Redirect(http.StatusMovedPermanently, "/")
 }
