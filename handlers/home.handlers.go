@@ -19,7 +19,7 @@ func GetHome(c echo.Context) error {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"massage": err.Error()})
 	}
 
-	data, _ := connection.Conn.Query(context.Background(), "SELECT * FROM tb_project")
+	data, _ := connection.Conn.Query(context.Background(), "SELECT tb_project.id, tb_user.username, tb_project.project_id, tb_name_project, tb_project.description, tb_project.technologies, tb_proejct.image, tb_project.start_date, tb_project.end_date FROM tb_project LEFT JOIN tb_user ON tb_project.project_id = tb_user.id")
 
 	models.DataProject = []models.AddedProject{}
 	for data.Next() {

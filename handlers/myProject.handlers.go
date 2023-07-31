@@ -38,13 +38,20 @@ func GetAddedProject(c echo.Context) error {
 	content := c.FormValue("input-description")
 	startDate := c.FormValue("input-start-date")
 	endDate := c.FormValue("input-end-date")
-	image := c.FormValue("input-image")
 	nodeCheck := c.FormValue("nodeCheck")
 	reactCheck := c.FormValue("reactCheck")
 	golangCheck := c.FormValue("goCheck")
 	jsCheck := c.FormValue("jsCheck")
+	technologies := []string{nodeCheck, reactCheck, golangCheck, jsCheck}
 
-	_, err := connection.Conn.Exec(context.Background(), "INSERT INTO tb_project (name_project, start_date, end_date, description, technologies[1], technologies[2], technologies[3], technologies[4], image) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)", projectName, startDate, endDate, content, nodeCheck, reactCheck, golangCheck, jsCheck, image)
+	imageUpload := c.Get("dataFile").(string)
+	
+	sess, _ := session.Get("session", c)
+	userID, _ := sess.Values["id"].(int)
+
+	_, err := connection.Conn.Exec(context.Background(),
+	"INSERT INTO tb_project (name_project, start_date, end_date, technologies, description, image, project_id) VALUES ($1, $2, $3, $4, $5, $6, $7)", 
+	projectName, startDate, endDate, technologies, content, imageUpload, userID)
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, err.Error())
 	}

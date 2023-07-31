@@ -23,7 +23,7 @@ func GetDetailProject(c echo.Context) error {
 
 	ProjectDetail := models.AddedProject{}
 
-	errQuery := connection.Conn.QueryRow(context.Background(), "SELECT * FROM tb_project WHERE id=$1", id).Scan(&ProjectDetail.Id, &ProjectDetail.ProjectName, &ProjectDetail.StartDate, &ProjectDetail.EndDate, &ProjectDetail.Duration, &ProjectDetail.Content, &ProjectDetail.Technologies, &ProjectDetail.Image)
+	errQuery := connection.Conn.QueryRow(context.Background(), "SELECT tb_project.id, tb_user.username, tb_project.project_id, tb_name_project, tb_project.description, tb_project.technologies, tb_proejct.image, tb_project.start_date, tb_project.end_date FROM tb_project LEFT JOIN tb_user ON tb_project.project_id = tb_user.id", id).Scan(&ProjectDetail.Id, &ProjectDetail.ProjectName, &ProjectDetail.StartDate, &ProjectDetail.EndDate, &ProjectDetail.Duration, &ProjectDetail.Content, &ProjectDetail.Technologies, &ProjectDetail.Image)
 
 	if errQuery != nil {
 		return c.JSON(http.StatusInternalServerError, err.Error())

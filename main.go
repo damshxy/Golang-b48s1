@@ -3,6 +3,7 @@ package main
 import (
 	"perosnal-web/connection"
 	"perosnal-web/handlers"
+	"perosnal-web/middleware"
 
 	"github.com/gorilla/sessions"
 	"github.com/labstack/echo-contrib/session"
@@ -18,6 +19,7 @@ func main() {
 	e.Use(session.Middleware(sessions.NewCookieStore([]byte("session"))))
 
 	e.Static("/public", "public")
+	e.Static("/uploads", "uploads")
 
 	// Get Routing
 	e.GET("/", handlers.GetHome)
@@ -31,7 +33,7 @@ func main() {
 	e.GET("/form-login", handlers.GetFormLogin)
 
 	// Post Routing
-	e.POST("/addedProject", handlers.GetAddedProject)
+	e.POST("/addedProject", middleware.GetUploadFile(handlers.GetAddedProject))
 	e.POST("/deleteProject/:id", handlers.GetDeleteProject)
 	e.POST("/edit-project/:id", handlers.GetSubmitEditProject)
 	e.POST("/logout", handlers.GetLogout)

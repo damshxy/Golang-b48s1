@@ -15,6 +15,7 @@ type AddedProject struct {
 	Golang      bool
 	JavaScript bool
 	Image string
+	ProjectID int
 }
 
 var DataProject = []AddedProject{
